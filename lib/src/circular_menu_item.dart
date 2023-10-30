@@ -71,8 +71,8 @@ class CircularMenuItem extends StatelessWidget {
         child: Material(
           color: color ?? Theme.of(context).primaryColor,
           child: SizedBox(
-            width: 70,
-            height: 70,
+            width: 50,
+            height: 50,
             child: FloatingActionButton(
               onPressed: onTap,
               child: Column(
