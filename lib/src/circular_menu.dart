@@ -227,8 +227,8 @@ class CircularMenuState extends State<CircularMenu>
       child: Align(
         alignment: widget.alignment,
         child: SizedBox(
-          width: 170,
-          height: 170,
+          width: 150,
+          height: 150,
           child: CircularMenuItem(
             icon: null,
             margin: widget.toggleButtonMargin,
