@@ -58,13 +58,12 @@ class CircularMenuItem extends StatelessWidget {
       margin: EdgeInsets.all(margin),
       decoration: BoxDecoration(
         color: Colors.transparent,
-        boxShadow: boxShadow ??
-            [
-              BoxShadow(
-                color: color ?? Theme.of(context).primaryColor,
-                blurRadius: 10,
-              ),
-            ],
+        boxShadow: boxShadow ?? [
+          BoxShadow(
+            color: color ?? Theme.of(context).primaryColor,
+            blurRadius: 10,
+          ),
+        ],
         shape: BoxShape.circle,
       ),
       child: ClipOval(
@@ -73,13 +72,24 @@ class CircularMenuItem extends StatelessWidget {
           child: InkWell(
             child: Padding(
               padding: EdgeInsets.all(padding),
-              child: animatedIcon == null
-                  ? Icon(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  if (animatedIcon == null)
+                    Icon(
                       icon,
                       size: iconSize,
                       color: iconColor ?? Colors.white,
                     )
-                  : animatedIcon,
+                  else
+                    animatedIcon!,
+                  if (buttonLabel != null)
+                    Padding(
+                      padding: const EdgeInsets.only(top: 4.0),
+                      child: buttonLabel!,
+                    ),
+                ],
+              ),
             ),
             onTap: onTap,
           ),
@@ -87,6 +97,7 @@ class CircularMenuItem extends StatelessWidget {
       ),
     );
   }
+
 
   Widget _buildCircularMenuItemWithBadge(BuildContext context) {
     return _Badge(
