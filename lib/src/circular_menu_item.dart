@@ -71,8 +71,8 @@ class CircularMenuItem extends StatelessWidget {
         child: Material(
           color: color ?? Theme.of(context).primaryColor,
           child: SizedBox(
-            width: 50,
-            height: 50,
+            width: 80,
+            height: 80,
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.grey,
