@@ -73,7 +73,12 @@ class CircularMenuItem extends StatelessWidget {
           child: SizedBox(
             width: 50,
             height: 50,
-            child: FloatingActionButton(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.grey,
+                padding: EdgeInsets.all(padding),
+                shape: CircleBorder(),
+              ),
               onPressed: onTap,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
