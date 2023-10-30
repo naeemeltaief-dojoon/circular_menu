@@ -24,6 +24,8 @@ class CircularMenuItem extends StatelessWidget {
   /// if animatedIcon and icon are passed, icon will be ignored
   final Icon? animatedIcon;
 
+  final Text? buttonLabel;
+
   /// creates a menu item .
   /// [onTap] must not be null.
   /// [padding] and [margin]  must be equal or greater than zero.
@@ -35,6 +37,7 @@ class CircularMenuItem extends StatelessWidget {
     this.boxShadow,
     this.iconColor,
     this.animatedIcon,
+    this.buttonLabel,
     this.padding = 10,
     this.margin = 10,
     this.enableBadge = false,

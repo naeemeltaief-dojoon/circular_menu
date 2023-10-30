@@ -38,6 +38,7 @@ class CircularMenu extends StatefulWidget {
   final double toggleButtonMargin;
   final Color? toggleButtonIconColor;
   final IconData toggleButtonAnimatedIconData;
+  final Text? toggleButtonLabel;
 
   /// staring angle in clockwise radian
   final double? startingAngleInRadian;
@@ -65,6 +66,7 @@ class CircularMenu extends StatefulWidget {
     this.toggleButtonSize = 40,
     this.toggleButtonIconColor,
     this.toggleButtonAnimatedIconData = Icons.add,
+    this.toggleButtonLabel,
     this.key,
     this.startingAngleInRadian,
     this.endingAngleInRadian,
@@ -243,6 +245,7 @@ class CircularMenuState extends State<CircularMenu>
             widget.toggleButtonAnimatedIconData,
             color: widget.toggleButtonIconColor ?? Colors.white,
           ),
+          buttonLabel: widget.toggleButtonLabel,
         ),
       ),
     );
