@@ -70,22 +70,26 @@ class CircularMenuItem extends StatelessWidget {
       child: ClipOval(
         child: Material(
           color: color ?? Theme.of(context).primaryColor,
-          child: InkWell(
-            child: Column(
-              children: [
-                SizedBox(height: padding),
-                icon != null
-                    ? Icon(
-                        icon,
-                        size: iconSize,
-                        color: iconColor ?? Colors.white,
-                      )
-                    : animatedIcon!,
-                buttonLabel ?? Container(),
-                SizedBox(height: padding),
-              ],
+          child: SizedBox(
+            width: 56,
+            height: 56,
+            child: InkWell(
+              child: Column(
+                children: [
+                  SizedBox(height: padding),
+                  icon != null
+                      ? Icon(
+                          icon,
+                          size: iconSize,
+                          color: iconColor ?? Colors.white,
+                        )
+                      : animatedIcon!,
+                  buttonLabel ?? Container(),
+                  SizedBox(height: padding),
+                ],
+              ),
+              onTap: onTap,
             ),
-            onTap: onTap,
           ),
         ),
       ),
