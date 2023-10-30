@@ -84,10 +84,7 @@ class CircularMenuItem extends StatelessWidget {
                   else
                     animatedIcon!,
                   if (buttonLabel != null)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 4.0),
-                      child: buttonLabel!,
-                    ),
+                    buttonLabel!,
                 ],
               ),
             ),
