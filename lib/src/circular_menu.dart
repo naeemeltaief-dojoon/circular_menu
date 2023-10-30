@@ -244,7 +244,9 @@ class CircularMenuState extends State<CircularMenu>
           animatedIcon: Icon(
             widget.toggleButtonAnimatedIconData,
             color: widget.toggleButtonIconColor ?? Colors.white,
+            size: widget.toggleButtonSize,
           ),
+
           buttonLabel: widget.toggleButtonLabel,
         ),
       ),
