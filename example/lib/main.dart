@@ -24,7 +24,11 @@ class _MyAppState extends State<MyApp> {
         ),
         body: CircularMenu(
           alignment: Alignment.bottomCenter,
-          toggleButtonSize: 120.0,
+          toggleButtonMargin: 10,
+          toggleButtonPadding: 10,
+          toggleButtonSize: 40,
+          startingAngleInRadian: 22.5,
+          endingAngleInRadian: 12,
           backgroundWidget: Center(
             child: RichText(
               text: TextSpan(
@@ -41,8 +45,11 @@ class _MyAppState extends State<MyApp> {
             ),
           ),
           toggleButtonColor: Colors.pink,
+          toggleButtonLabel: Text('Click'),
           items: [
             CircularMenuItem(
+              iconSize: 30,
+              buttonLabel: Text('Home'),
                 icon: Icons.home,
                 color: Colors.green,
                 onTap: () {
@@ -60,33 +67,33 @@ class _MyAppState extends State<MyApp> {
                     _colorName = 'Blue';
                   });
                 }),
-            CircularMenuItem(
-                icon: Icons.settings,
-                color: Colors.orange,
-                onTap: () {
-                  setState(() {
-                    _color = Colors.orange;
-                    _colorName = 'Orange';
-                  });
-                }),
-            CircularMenuItem(
-                icon: Icons.chat,
-                color: Colors.purple,
-                onTap: () {
-                  setState(() {
-                    _color = Colors.purple;
-                    _colorName = 'Purple';
-                  });
-                }),
-            CircularMenuItem(
-                icon: Icons.notifications,
-                color: Colors.brown,
-                onTap: () {
-                  setState(() {
-                    _color = Colors.brown;
-                    _colorName = 'Brown';
-                  });
-                })
+            // CircularMenuItem(
+            //     icon: Icons.settings,
+            //     color: Colors.orange,
+            //     onTap: () {
+            //       setState(() {
+            //         _color = Colors.orange;
+            //         _colorName = 'Orange';
+            //       });
+            //     }),
+            // CircularMenuItem(
+            //     icon: Icons.chat,
+            //     color: Colors.purple,
+            //     onTap: () {
+            //       setState(() {
+            //         _color = Colors.purple;
+            //         _colorName = 'Purple';
+            //       });
+            //     }),
+            // CircularMenuItem(
+            //     icon: Icons.notifications,
+            //     color: Colors.brown,
+            //     onTap: () {
+            //       setState(() {
+            //         _color = Colors.brown;
+            //         _colorName = 'Brown';
+            //       });
+            //     })
           ],
         ),
       ),
