@@ -226,28 +226,32 @@ class CircularMenuState extends State<CircularMenu>
     return Positioned.fill(
       child: Align(
         alignment: widget.alignment,
-        child: CircularMenuItem(
-          icon: null,
-          margin: widget.toggleButtonMargin,
-          color: widget.toggleButtonColor ?? Theme.of(context).primaryColor,
-          padding: (-_animation.value * widget.toggleButtonPadding * 0.5) +
-              widget.toggleButtonPadding,
-          onTap: () {
-            _animationController.status == AnimationStatus.dismissed
-                ? (_animationController).forward()
-                : (_animationController).reverse();
-            if (widget.toggleButtonOnPressed != null) {
-              widget.toggleButtonOnPressed!();
-            }
-          },
-          boxShadow: widget.toggleButtonBoxShadow,
-          animatedIcon: Icon(
-            widget.toggleButtonAnimatedIconData,
-            color: widget.toggleButtonIconColor ?? Colors.white,
-            size: widget.toggleButtonSize,
-          ),
+        child: SizedBox(
+          width: 170,
+          height: 170,
+          child: CircularMenuItem(
+            icon: null,
+            margin: widget.toggleButtonMargin,
+            color: widget.toggleButtonColor ?? Theme.of(context).primaryColor,
+            padding: (-_animation.value * widget.toggleButtonPadding * 0.5) +
+                widget.toggleButtonPadding,
+            onTap: () {
+              _animationController.status == AnimationStatus.dismissed
+                  ? (_animationController).forward()
+                  : (_animationController).reverse();
+              if (widget.toggleButtonOnPressed != null) {
+                widget.toggleButtonOnPressed!();
+              }
+            },
+            boxShadow: widget.toggleButtonBoxShadow,
+            animatedIcon: Icon(
+              widget.toggleButtonAnimatedIconData,
+              color: widget.toggleButtonIconColor ?? Colors.white,
+              size: widget.toggleButtonSize,
+            ),
 
-          buttonLabel: widget.toggleButtonLabel,
+            buttonLabel: widget.toggleButtonLabel,
+          ),
         ),
       ),
     );
