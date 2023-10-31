@@ -229,38 +229,28 @@ class CircularMenuState extends State<CircularMenu>
         child: SizedBox(
           width: 120,
           height: 120,
-          child: FloatingActionButton(
-            onPressed: () {
+          child: CircularMenuItem(
+            icon: null,
+            margin: widget.toggleButtonMargin,
+            color: widget.toggleButtonColor ?? Theme.of(context).primaryColor,
+            padding: (-_animation.value * widget.toggleButtonPadding * 0.5) +
+                widget.toggleButtonPadding,
+            onTap: () {
               _animationController.status == AnimationStatus.dismissed
-                    ? (_animationController).forward()
-                    : (_animationController).reverse();
+                  ? (_animationController).forward()
+                  : (_animationController).reverse();
               if (widget.toggleButtonOnPressed != null) {
                 widget.toggleButtonOnPressed!();
               }
             },
-            child: CircularMenuItem(
-              icon: null,
-              margin: widget.toggleButtonMargin,
-              color: widget.toggleButtonColor ?? Theme.of(context).primaryColor,
-              padding: (-_animation.value * widget.toggleButtonPadding * 0.5) +
-                  widget.toggleButtonPadding,
-              onTap: () {
-                _animationController.status == AnimationStatus.dismissed
-                    ? (_animationController).forward()
-                    : (_animationController).reverse();
-                if (widget.toggleButtonOnPressed != null) {
-                  widget.toggleButtonOnPressed!();
-                }
-              },
-              boxShadow: widget.toggleButtonBoxShadow,
-              animatedIcon: Icon(
-                widget.toggleButtonAnimatedIconData,
-                color: widget.toggleButtonIconColor ?? Colors.white,
-                size: widget.toggleButtonSize,
-              ),
-
-              buttonLabel: widget.toggleButtonLabel,
+            boxShadow: widget.toggleButtonBoxShadow,
+            animatedIcon: Icon(
+              widget.toggleButtonAnimatedIconData,
+              color: widget.toggleButtonIconColor ?? Colors.white,
+              size: widget.toggleButtonSize,
             ),
+
+            buttonLabel: widget.toggleButtonLabel,
           ),
         ),
       ),
