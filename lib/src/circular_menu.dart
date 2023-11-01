@@ -40,6 +40,7 @@ class CircularMenu extends StatefulWidget {
   final IconData toggleButtonAnimatedIconData;
   final Text? toggleButtonLabel;
 
+
   /// staring angle in clockwise radian
   final double? startingAngleInRadian;
 
@@ -87,6 +88,7 @@ class CircularMenuState extends State<CircularMenu>
   double? _startAngle;
   late int _itemsCount;
   late Animation<double> _animation;
+  bool _isButtonPressed = false;
 
   /// forward animation
   void forwardAnimation() {
@@ -229,33 +231,40 @@ class CircularMenuState extends State<CircularMenu>
         child: SizedBox(
           width: 120,
           height: 120,
-          child: CircularMenuItem(
-            icon: null,
-            margin: widget.toggleButtonMargin,
-            color: widget.toggleButtonColor ?? Theme.of(context).primaryColor,
-            padding: (-_animation.value * widget.toggleButtonPadding * 0.5) +
-                widget.toggleButtonPadding,
-            onTap: () {
-              _animationController.status == AnimationStatus.dismissed
-                  ? (_animationController).forward()
-                  : (_animationController).reverse();
-              if (widget.toggleButtonOnPressed != null) {
-                widget.toggleButtonOnPressed!();
-              }
-            },
-            boxShadow: widget.toggleButtonBoxShadow,
-            animatedIcon: Icon(
-              widget.toggleButtonAnimatedIconData,
-              color: widget.toggleButtonIconColor ?? Colors.white,
-              size: widget.toggleButtonSize,
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircularMenuItem(
+              icon: null,
+              margin: widget.toggleButtonMargin,
+              color: widget.toggleButtonColor ?? Theme.of(context).primaryColor,
+              padding: (-_animation.value * widget.toggleButtonPadding * 0.5) +
+                  widget.toggleButtonPadding,
+              onTap: () {
+                // Toggle button state and animation
+                _isButtonPressed = !_isButtonPressed;
+                setState(() {
+                  _animationController.status == AnimationStatus.dismissed
+                      ? (_animationController).forward()
+                      : (_animationController).reverse();
+                });
+                if (widget.toggleButtonOnPressed != null) {
+                  widget.toggleButtonOnPressed!();
+                }
+              },
+              boxShadow: widget.toggleButtonBoxShadow,
+              animatedIcon: Icon(
+                _isButtonPressed ? Icons.close : widget.toggleButtonAnimatedIconData,  // Conditional icon
+                color: widget.toggleButtonIconColor ?? Colors.white,
+                size: widget.toggleButtonSize,
+              ),
+              buttonLabel: widget.toggleButtonLabel,
             ),
-
-            buttonLabel: widget.toggleButtonLabel,
           ),
         ),
       ),
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
